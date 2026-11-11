@@ -10,7 +10,7 @@ import { MagneticButton } from "@/components/motion/magnetic-button";
 import { AmbientGlow } from "@/components/visuals/ambient-glow";
 import { GridLines } from "@/components/visuals/grid-lines";
 import { NoiseOverlay } from "@/components/visuals/noise-overlay";
-import { HeroVisual } from "./hero-visual";
+import { HeroPortrait } from "./hero-portrait";
 import { ScrollCue } from "./scroll-cue";
 
 export function HeroScene() {
@@ -122,9 +122,9 @@ export function HeroScene() {
           </motion.div>
         </motion.div>
 
-        {/* Interactive visual */}
+        {/* Portrait or interactive visual on the right */}
         <div className="lg:col-span-5">
-          <HeroVisual />
+          <HeroPortrait />
         </div>
       </div>
 
