@@ -32,7 +32,7 @@ export function HeroScene() {
       <NoiseOverlay opacity={0.03} />
 
       {/* Top role label */}
-      <div className="absolute left-0 right-0 top-20 z-10 mx-auto max-w-6xl px-5 sm:top-24 sm:px-8">
+      <div className="absolute left-0 right-0 top-16 z-10 mx-auto max-w-6xl px-5 sm:top-24 sm:px-8">
         <motion.div
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,13 +42,13 @@ export function HeroScene() {
         </motion.div>
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 px-5 pt-28 pb-16 sm:px-8 sm:pt-32 sm:pb-20 lg:grid-cols-12 lg:gap-6 lg:pt-24">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 px-5 pt-36 pb-16 sm:px-8 sm:pt-40 sm:pb-20 lg:grid-cols-12 lg:gap-6 lg:pt-24">
         {/* Headline + CTAs */}
         <motion.div
           style={reduce ? undefined : { y: yCopy, opacity: opacityCopy }}
           className="lg:col-span-7"
         >
-          <h1 className="font-display text-[clamp(1.8rem,8vw,6rem)] font-bold leading-[0.92] tracking-[-0.04em] text-bone text-balance">
+          <h1 className="font-display text-[clamp(1.6rem,7vw,5rem)] font-bold leading-[0.92] tracking-[-0.04em] text-bone text-balance">
             <Line delay={0.2}>I build</Line>
             <Line delay={0.32}>
               <span className="text-gradient-animated">digital</span> experiences
