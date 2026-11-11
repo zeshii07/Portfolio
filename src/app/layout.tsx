@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://developerzeeshan.vercel.app/";
+const SITE_URL = "https://developerzeeshan.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -58,6 +58,12 @@ export const metadata: Metadata = {
     siteName: "Zeeshan Ahmad",
     type: "website",
     locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zeeshan Ahmad — Full-Stack Developer & AI Automation Builder",
+    description:
+      "Building useful digital products with code, AI, and secure engineering.",
   },
   robots: {
     index: true,

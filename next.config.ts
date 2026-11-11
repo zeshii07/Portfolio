@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  /* config options here */
+  // Vercel-ready: standard build output (NOT standalone).
+  // `output: "standalone"` is only for self-hosting (Docker / bare metal)
+  // and breaks Vercel deployments.
   typescript: {
     ignoreBuildErrors: true,
   },

@@ -10,12 +10,16 @@ export const navLinks: NavLink[] = [
 
 export const socialLinks: SocialLink[] = [
   { label: "GitHub", href: "https://github.com/zeshii07", icon: "github" },
-  { label: "LinkedIn", href: "www.linkedin.com/in/hafiz-muhammad-zeeshan-718a03410", icon: "linkedin" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/hafiz-muhammad-zeeshan-718a03410",
+    icon: "linkedin",
+  },
   { label: "Email", href: "mailto:zeeshansultan785@gmail.com", icon: "email" },
 ];
 
 export const contactInfo = {
-  email: "hello@zeeshan.dev",
+  email: "zeeshansultan785@gmail.com",
   location: "Based in Pakistan",
   locationDetail: "Lahore, Pakistan · UTC+5",
   whatsapp: "https://wa.me/+923019299608",
