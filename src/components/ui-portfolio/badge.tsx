@@ -3,17 +3,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-mono-token text-[11px] font-medium uppercase tracking-wide transition-colors",
+  "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-mono-token text-[10px] font-medium uppercase tracking-[0.18em] transition-colors",
   {
     variants: {
       variant: {
-        default: "border-token bg-surface-raised/60 text-secondary",
-        accent: "border-primary/40 bg-primary/10 text-primary",
-        teal: "border-accent-secondary/30 bg-accent-secondary/10 text-accent-secondary",
-        success: "border-[#35C98A]/30 bg-[#35C98A]/10 text-[#35C98A]",
-        warning: "border-[#F5B942]/30 bg-[#F5B942]/10 text-[#F5B942]",
-        danger: "border-[#F16B75]/30 bg-[#F16B75]/10 text-[#F16B75]",
-        outline: "border-token text-secondary",
+        default: "border-token-dark bg-ink/5 text-ink/70",
+        accent: "border-violet/30 bg-violet/10 text-violet",
+        teal: "border-aqua/30 bg-aqua/10 text-aqua",
+        success: "border-[#35C98A]/30 bg-[#35C98A]/10 text-[#1F9D6B]",
+        warning: "border-tangerine/30 bg-tangerine/10 text-tangerine",
+        danger: "border-tangerine/30 bg-tangerine/10 text-tangerine",
+        outline: "border-ink/15 text-ink/60",
+        dark: "border-token-soft bg-ink-soft text-bone",
       },
     },
     defaultVariants: {
@@ -38,16 +39,17 @@ const statusVariantMap: Record<string, NonNullable<TechBadgeProps["variant"]>> =
   Prototype: "outline",
 };
 
+const statusDotColor: Record<string, string> = {
+  Live: "bg-aqua",
+  "In Progress": "bg-tangerine",
+  Prototype: "bg-ink/40",
+};
+
 export function StatusBadge({ status }: { status: string }) {
   return (
     <TechBadge variant={statusVariantMap[status] ?? "default"} aria-label={`Status: ${status}`}>
       <span
-        className={cn(
-          "size-1.5 rounded-full",
-          status === "Live" && "bg-[#35C98A]",
-          status === "In Progress" && "bg-[#F5B942]",
-          status === "Prototype" && "bg-[#A7B3C8]",
-        )}
+        className={cn("size-1.5 rounded-full", statusDotColor[status] ?? "bg-ink/40")}
         aria-hidden
       />
       {status}

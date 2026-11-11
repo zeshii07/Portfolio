@@ -140,8 +140,8 @@ export const projects: Project[] = [
     slug: "hirely-ai",
     title: "Hirely AI",
     summary:
-      "Interview preparation and CV/resume tooling that helps candidates practice role-specific questions and improve their application materials.",
-    category: "AI & Automation",
+      "Interview preparation and CV/resume tooling that helps candidates practice role-specific questions and improve their application materials. Built mobile-first.",
+    category: "Mobile",
     projectType: "personal",
     status: "In Progress",
     dateLabel: "2024",
@@ -537,6 +537,7 @@ export const projectCategories = [
   "All",
   "Full-stack",
   "AI & Automation",
+  "Mobile",
   "Business Software",
   "Cybersecurity / Networking",
 ] as const;

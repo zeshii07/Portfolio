@@ -22,16 +22,16 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://zeeshan.dev";
+const SITE_URL = "https://developerzeeshan.vercel.app/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Zeeshan Ahmad — Full-Stack Developer · AI Automation · Cybersecurity",
+    default: "Zeeshan Ahmad — Building useful digital products",
     template: "%s — Zeeshan Ahmad",
   },
   description:
-    "Software developer building full-stack web applications, practical AI automation, and secure engineering solutions. Explore selected projects, services, and case studies.",
+    "Full-stack developer building digital experiences at the intersection of software engineering, AI automation, and secure products. Explore selected work and case studies.",
   keywords: [
     "Zeeshan Ahmad",
     "Full-Stack Developer",
@@ -58,13 +58,6 @@ export const metadata: Metadata = {
     siteName: "Zeeshan Ahmad",
     type: "website",
     locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Zeeshan Ahmad — Full-Stack Developer & AI Automation Builder",
-    description:
-      "Building useful digital products with code, AI, and secure engineering.",
-    creator: "@zeeshanahmad",
   },
   robots: {
     index: true,

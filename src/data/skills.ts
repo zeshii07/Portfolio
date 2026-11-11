@@ -28,6 +28,67 @@ export const skillGroups: SkillGroup[] = [
   },
 ];
 
+/**
+ * Orbital skill map data for the constellation scene.
+ * Each group has a position angle (deg) on the orbit.
+ */
+export interface OrbitalSkillGroup {
+  id: string;
+  label: string;
+  angle: number;
+  title: string;
+  description: string;
+  skills: string[];
+}
+
+export const orbitalSkillGroups: OrbitalSkillGroup[] = [
+  {
+    id: "fe",
+    label: "Frontend",
+    angle: -90,
+    title: "Frontend engineering",
+    description:
+      "Component-driven React and Next.js apps with TypeScript. Mobile-first, accessible, and fast — design system thinking applied to product UI.",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: "be",
+    label: "Backend",
+    angle: -18,
+    title: "Backend engineering",
+    description:
+      "Node.js APIs with clear boundaries: routes, auth, validation, and persistence kept separate so behavior is easy to reason about and test.",
+    skills: ["Node.js", "REST APIs", "Authentication", "Integrations"],
+  },
+  {
+    id: "ai",
+    label: "AI",
+    angle: 54,
+    title: "AI & automation",
+    description:
+      "Practical AI: retrieval-augmented assistants, structured prompt pipelines, and automation that is grounded and verifiable rather than free-form chat.",
+    skills: ["LLM integration", "RAG", "Conversation flows", "Business automation"],
+  },
+  {
+    id: "sec",
+    label: "Security",
+    angle: 126,
+    title: "Security & networking",
+    description:
+      "Cybersecurity fundamentals and networking basics applied to real code: input validation, authorization, secrets handling, and safe defaults.",
+    skills: ["Networking", "Ethical hacking concepts", "Secure coding"],
+  },
+  {
+    id: "tools",
+    label: "Tools",
+    angle: 198,
+    title: "Tools & workflow",
+    description:
+      "A pragmatic toolkit: Git workflows, deployment, automated testing, and design tools used to ship and maintain software reliably.",
+    skills: ["Git", "Deployment", "Testing", "Design tools"],
+  },
+];
+
 export const credibilityHighlights: { label: string; sub: string }[] = [
   { label: "BS Information Technology", sub: "University of the Punjab" },
   { label: "Deployed client websites", sub: "Responsive, SEO-ready, with handover" },
@@ -58,3 +119,14 @@ export const workingProcess: { step: string; title: string; description: string 
     description: "Deploy safely, document handover, and stay available for fixes and improvements after launch.",
   },
 ];
+
+export const marqueePhrases = [
+  { text: "BUILD", outline: false },
+  { text: "AUTOMATE", outline: true },
+  { text: "EXPLORE", outline: false },
+  { text: "SHIP", outline: false },
+  { text: "SECURE", outline: true },
+  { text: "ITERATE", outline: false },
+];
+
+export const rotatingHeroWords = ["software", "AI", "automation", "digital products"];

@@ -1,6 +1,7 @@
 export type ProjectCategory =
   | "Full-stack"
   | "AI & Automation"
+  | "Mobile"
   | "Business Software"
   | "Cybersecurity / Networking";
 
