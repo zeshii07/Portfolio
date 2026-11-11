@@ -100,9 +100,9 @@ export function ContactScene() {
         <div className="absolute left-1/2 top-0 size-2 -translate-x-1/2 rounded-full bg-volt" />
       </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-6 sm:px-8 sm:py-8 lg:py-10">
         {/* Header */}
-        <div className="mb-8 flex items-end justify-between gap-6">
+        <div className="mb-5 flex items-end justify-between gap-6">
           <Eyebrow color="volt">Contact</Eyebrow>
           <SectionNumber value="08" outline={false} className="text-white/30" />
         </div>
@@ -111,12 +111,12 @@ export function ContactScene() {
         <SplitText
           as="h2"
           text="Have something worth building?"
-          className="font-display text-display font-bold text-white text-balance"
+          className="font-display text-[clamp(2rem,6vw,4rem)] font-bold leading-tight text-white text-balance"
           from="bottom"
           stagger={0.06}
         />
 
-        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-12">
           {/* Left: oversized email + social */}
           <div className="lg:col-span-5">
             <Reveal direction="up">

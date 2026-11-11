@@ -26,15 +26,15 @@ export function SkillConstellation() {
       <AmbientGlow variant="violet" className="left-[20%] top-[10%] h-[460px] w-[460px] opacity-40" />
       <GridLines variant="dark" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-6 sm:px-8 sm:py-8 lg:py-10">
         {/* Header */}
-        <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
+        <div className="mb-5 grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-7">
             <Eyebrow color="aqua">Capabilities</Eyebrow>
             <SplitText
               as="h2"
               text="A technical constellation."
-              className="mt-5 font-display text-page-title font-bold text-bone"
+              className="mt-5 font-display text-[clamp(1.6rem,4vw,3rem)] font-bold text-bone"
               from="bottom"
             />
             <Reveal delay={0.3} className="mt-4 max-w-md text-base leading-relaxed text-muted-light">
@@ -47,7 +47,7 @@ export function SkillConstellation() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-12">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-8">
           {/* Mobile: segmented selector */}
           <div className="lg:hidden">
             <div

@@ -13,7 +13,8 @@ export const projects: Project[] = [
     role: "Solo developer · Architecture, backend, dashboard, integrations",
     isFeatured: true,
     posterLabel: "Nova",
-    posterAccent: "#6C63FF",
+    posterAccent: "#8B4DFF",
+    posterVariant: "dashboard",
     technologies: ["Next.js", "Node.js", "TypeScript", "LLM Integration", "REST API", "MySQL"],
     problem:
       "Small and growing businesses receive large volumes of repetitive customer questions across multiple channels. Owners spend hours answering the same FAQs, miss leads outside business hours, and lack a single view of every conversation.",
@@ -148,7 +149,8 @@ export const projects: Project[] = [
     role: "Solo developer · UX, frontend, AI integration",
     isFeatured: true,
     posterLabel: "Hirely",
-    posterAccent: "#22D3C5",
+    posterAccent: "#5BE6D1",
+    posterVariant: "mobile",
     technologies: ["Next.js", "React", "TypeScript", "LLM Integration", "Tailwind CSS"],
     problem:
       "Candidates preparing for interviews struggle to find role-specific practice questions, get limited feedback on their answers, and rarely receive structured suggestions for improving their CV before applying.",
@@ -259,7 +261,8 @@ export const projects: Project[] = [
     role: "Developer · Database design, backend, dashboard UI",
     isFeatured: true,
     posterLabel: "InvSys",
-    posterAccent: "#35C98A",
+    posterAccent: "#D8FF3E",
+    posterVariant: "cards",
     technologies: ["Node.js", "Express", "MySQL", "Oracle", "React", "REST API"],
     problem:
       "A small business tracked inventory manually in spreadsheets. Stock counts were often wrong, movements were not logged, and there was no clear separation between staff who could view stock and those who could adjust it.",
@@ -369,7 +372,8 @@ export const projects: Project[] = [
     role: "Frontend developer · Design implementation, deployment, SEO basics",
     isFeatured: true,
     posterLabel: "Web",
-    posterAccent: "#F5B942",
+    posterAccent: "#FF603D",
+    posterVariant: "terminal",
     technologies: ["React", "Next.js", "Tailwind CSS", "SEO", "Deployment"],
     problem:
       "Small businesses needed fast, mobile-friendly websites they could maintain, with basics like meta tags, sitemaps, and contact routes set up correctly from day one.",
@@ -455,6 +459,7 @@ export const projects: Project[] = [
     isFeatured: false,
     posterLabel: "Sec",
     posterAccent: "#F16B75",
+    posterVariant: "network",
     technologies: ["Networking", "Nmap", "Wireshark", "Linux", "Bash"],
     problem:
       "Theory alone does not build operational security intuition. To genuinely understand networking and security, hands-on practice in controlled environments is essential.",

@@ -45,13 +45,13 @@ export function AboutPreview() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 pt-14 pb-14 sm:px-8 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-20">
         {/* Header */}
-        <div className="mb-8 flex items-end justify-between gap-6 sm:mb-10">
+        <div className="mb-5 flex items-end justify-between gap-6 sm:mb-10">
           <Eyebrow color="ink">About</Eyebrow>
           <SectionNumber value="06" outline={false} className="text-ink/30" />
         </div>
 
         {/* Portrait — visible on all screen sizes */}
-        <div className="mb-10 flex justify-center sm:mb-12">
+        <div className="mb-6 flex justify-center sm:mb-8">
           <motion.div
             style={reduce ? undefined : { y: yPortrait }}
             className="relative w-full max-w-[220px] sm:max-w-[280px] lg:max-w-[340px]"
@@ -89,7 +89,7 @@ export function AboutPreview() {
         </div>
 
         {/* Text */}
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           <SplitText
             as="h2"
             text="A focused engineer who ships useful software."

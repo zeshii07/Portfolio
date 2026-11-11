@@ -17,13 +17,13 @@ export function KineticStatement() {
     >
       <NoiseOverlay opacity={0.08} />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-6 sm:px-8 sm:py-8 lg:py-10">
         <motion.h2
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-display font-bold uppercase tracking-[-0.03em] text-balance"
+          className="font-display text-[clamp(2rem,7vw,5rem)] font-bold uppercase tracking-[-0.03em] text-balance"
         >
           <span className="block">I turn complex</span>
           <span className="block">

@@ -43,6 +43,7 @@ export interface Project {
   /** Used for the listing card thumbnail (emoji or short label to render in SVG poster). */
   posterLabel: string;
   posterAccent: string;
+  posterVariant?: "terminal" | "dashboard" | "mobile" | "network" | "cards";
   technologies: string[];
   /** Used in the case study. */
   problem: string;

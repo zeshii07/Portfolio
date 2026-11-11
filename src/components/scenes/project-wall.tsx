@@ -9,7 +9,7 @@ import { Eyebrow } from "@/components/studio/eyebrow";
 import { SectionNumber } from "@/components/studio/section-number";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitText } from "@/components/motion/split-text";
-import { ImageMaskReveal } from "@/components/motion/image-mask-reveal";
+import { SimpleReveal } from "@/components/motion/simple-reveal";
 import { ProjectPoster } from "@/components/ui-portfolio/project-poster";
 import { StatusBadge } from "@/components/ui-portfolio/badge";
 import { useState, useMemo } from "react";
@@ -36,7 +36,7 @@ export function ProjectWall({ onOpenProject }: ProjectWallProps) {
       aria-label="Selected work"
       className="relative isolate bg-bone text-ink"
     >
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-5 py-6 sm:px-8 sm:py-8 lg:py-10">
         {/* Header */}
         <div className="mb-8 flex flex-col gap-5 sm:mb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div>
@@ -44,7 +44,7 @@ export function ProjectWall({ onOpenProject }: ProjectWallProps) {
             <SplitText
               as="h2"
               text="Things I have built."
-              className="mt-5 font-display text-page-title font-bold text-ink"
+              className="mt-5 font-display text-[clamp(1.6rem,4vw,3rem)] font-bold text-ink"
               from="bottom"
               stagger={0.08}
             />
@@ -84,7 +84,7 @@ export function ProjectWall({ onOpenProject }: ProjectWallProps) {
         </div>
 
         {/* Asymmetric editorial layout — render each project with its own composition */}
-        <div className="flex flex-col gap-10 sm:gap-14 lg:gap-16">
+        <div className="flex flex-col gap-6 sm:gap-8">
           {filtered.map((project, i) => (
             <ProjectFeature
               key={project.slug}
@@ -155,7 +155,7 @@ function ProjectFeature({
         // Layout A: image left, text right (portrait-feel poster)
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
-            <ImageMaskReveal from="left" duration={0.9}>
+            <SimpleReveal >
               <button
                 onClick={onOpen}
                 aria-label={`Open case study: ${project.title}`}
@@ -165,10 +165,11 @@ function ProjectFeature({
                   label={project.posterLabel}
                   accent={project.posterAccent}
                   category={project.category}
+                  variant={project.posterVariant || "terminal"}
                   className="aspect-[4/3] sm:aspect-[16/10] w-full"
                 />
               </button>
-            </ImageMaskReveal>
+            </SimpleReveal>
           </div>
           <div className="lg:col-span-5">
             <ProjectCopyBlock project={project} onOpen={onOpen} reduce={reduce} />
@@ -181,7 +182,7 @@ function ProjectFeature({
             <ProjectCopyBlock project={project} onOpen={onOpen} reduce={reduce} />
           </div>
           <div className="order-1 lg:order-2 lg:col-span-7">
-            <ImageMaskReveal from="right" duration={0.9}>
+            <SimpleReveal >
               <button
                 onClick={onOpen}
                 aria-label={`Open case study: ${project.title}`}
@@ -191,10 +192,11 @@ function ProjectFeature({
                   label={project.posterLabel}
                   accent={project.posterAccent}
                   category={project.category}
+                  variant={project.posterVariant || "terminal"}
                   className="aspect-[4/3] sm:aspect-[16/10] w-full"
                 />
               </button>
-            </ImageMaskReveal>
+            </SimpleReveal>
           </div>
         </div>
       ) : layoutVariant === 2 ? (
@@ -213,19 +215,20 @@ function ProjectFeature({
             aria-label={`Open case study: ${project.title}`}
             className="block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
           >
-            <ImageMaskReveal from="bottom" duration={0.9}>
+            <SimpleReveal >
               <ProjectPoster
                 label={project.posterLabel}
                 accent={project.posterAccent}
                 category={project.category}
+                  variant={project.posterVariant || "terminal"}
                 className="aspect-[16/9] sm:aspect-[21/9] w-full"
               />
-            </ImageMaskReveal>
+            </SimpleReveal>
           </button>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-12 sm:gap-8">
             <h3
               id={`project-title-${project.slug}`}
-              className="font-display text-project-title font-bold text-ink sm:col-span-7"
+              className="font-display text-[clamp(1.8rem,5vw,3rem)] font-bold text-ink sm:col-span-7"
             >
               {project.title}
             </h3>
@@ -288,7 +291,7 @@ function ProjectFeature({
             </Reveal>
           </div>
           <div className="lg:col-span-6">
-            <ImageMaskReveal from="right" duration={1}>
+            <SimpleReveal >
               <button
                 onClick={onOpen}
                 aria-label={`Open case study: ${project.title}`}
@@ -298,10 +301,11 @@ function ProjectFeature({
                   label={project.posterLabel}
                   accent={project.posterAccent}
                   category={project.category}
+                  variant={project.posterVariant || "terminal"}
                   className="aspect-[4/3] sm:aspect-[3/2] w-full"
                 />
               </button>
-            </ImageMaskReveal>
+            </SimpleReveal>
           </div>
         </div>
       )}
