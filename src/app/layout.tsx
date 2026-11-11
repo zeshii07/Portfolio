@@ -48,8 +48,17 @@ export const metadata: Metadata = {
   creator: "Zeeshan Ahmad",
   publisher: "Zeeshan Ahmad",
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.svg" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
+    shortcut: "/favicon.svg",
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Zeeshan Ahmad — Full-Stack Developer & AI Automation Builder",
     description:

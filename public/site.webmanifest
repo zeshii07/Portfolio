@@ -1,0 +1,31 @@
+{
+  "name": "Zeeshan Ahmad — Portfolio",
+  "short_name": "Zeeshan",
+  "description": "Full-Stack Developer · AI Automation · Secure Engineering",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101016",
+  "theme_color": "#8B4DFF",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
