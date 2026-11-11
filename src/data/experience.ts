@@ -1,0 +1,106 @@
+import type { ExperienceItem } from "@/types/portfolio";
+
+export const experience: ExperienceItem[] = [
+  {
+    id: "freelance-dev",
+    kind: "freelance",
+    role: "Freelance Full-Stack Developer",
+    organization: "Self-employed",
+    dateLabel: "2022 — Present",
+    bullets: [
+      "Delivered responsive business websites and web applications for clients, including deployment, SEO basics, and handover.",
+      "Built custom internal tools and integrated third-party services where required.",
+      "Maintained and improved existing client sites: bug fixes, performance, and dependency updates.",
+      "Scoped each engagement in writing before starting, with clear deliverables.",
+    ],
+    technologies: ["React", "Next.js", "Node.js", "Tailwind CSS", "MySQL"],
+  },
+  {
+    id: "nova-build",
+    kind: "work",
+    role: "Builder — Nova Automation Platform",
+    organization: "Personal product",
+    dateLabel: "2024 — Present",
+    bullets: [
+      "Designed and built a multi-tenant assistant platform with structured conversation flows and retrieval-augmented generation.",
+      "Implemented tenant isolation, audit logging, and human escalation paths.",
+      "Shipped a dashboard inbox for conversation review and lead management.",
+    ],
+    technologies: ["Next.js", "Node.js", "TypeScript", "LLM Integration", "MySQL"],
+  },
+  {
+    id: "hirely-build",
+    kind: "work",
+    role: "Builder — Hirely AI",
+    organization: "Personal product",
+    dateLabel: "2024",
+    bullets: [
+      "Designed an interview preparation flow with role-specific question banks and structured answer feedback.",
+      "Built a resume review module that produces structured, actionable suggestions.",
+      "Shipped a mobile-first UI suitable for on-the-go practice.",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "LLM Integration", "Tailwind CSS"],
+  },
+  {
+    id: "internship",
+    kind: "internship",
+    role: "IT / Development Intern",
+    organization: "Industry internship",
+    dateLabel: "2023",
+    bullets: [
+      "Contributed to internal web tooling and assisted with deployment and maintenance tasks.",
+      "Practiced requirements gathering, code review, and documentation in a team setting.",
+      "Wrote and updated technical documentation for internal tools.",
+    ],
+    technologies: ["JavaScript", "HTML/CSS", "Git"],
+  },
+  {
+    id: "bsit",
+    kind: "education",
+    role: "BS Information Technology",
+    organization: "University of the Punjab",
+    dateLabel: "Graduation expected 2025",
+    bullets: [
+      "Coursework spanning software engineering, databases, networking, and cybersecurity fundamentals.",
+      "Academic project work in Oracle SQL and relational database design.",
+      "Consistent focus on practical delivery: every major course paired with a working artifact.",
+    ],
+    technologies: ["Java", "Oracle", "MySQL", "Networking", "Cybersecurity fundamentals"],
+  },
+  {
+    id: "cert-networking",
+    kind: "certification",
+    role: "Networking Fundamentals",
+    organization: "Course certification",
+    dateLabel: "2024",
+    bullets: [
+      "Hands-on coverage of TCP/IP, routing basics, and packet analysis.",
+      "Lab exercises with Nmap and Wireshark in isolated environments.",
+    ],
+    technologies: ["Networking", "Nmap", "Wireshark"],
+  },
+  {
+    id: "cert-security",
+    kind: "certification",
+    role: "Cybersecurity Fundamentals",
+    organization: "Course certification",
+    dateLabel: "2023",
+    bullets: [
+      "Common vulnerabilities, threat modeling basics, and hardening practices.",
+      "Practical lab work in isolated environments.",
+    ],
+    technologies: ["Linux", "Bash", "Security fundamentals"],
+  },
+  {
+    id: "training-fullstack",
+    kind: "training",
+    role: "Full-Stack Web Development Training",
+    organization: "Self-directed + bootcamp material",
+    dateLabel: "2022 — 2023",
+    bullets: [
+      "Built and shipped multiple practice projects covering React, Node.js, and databases.",
+      "Practiced REST API design, authentication, and deployment workflows.",
+    ],
+    technologies: ["React", "Node.js", "Express", "MySQL"],
+  },
+];
