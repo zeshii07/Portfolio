@@ -62,9 +62,9 @@ export function ExperienceTimeline() {
     >
       <GridLines variant="light" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 sm:px-8 sm:py-28 lg:py-32">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
         {/* Header */}
-        <div className="mb-12 flex items-end justify-between gap-6">
+        <div className="mb-8 flex items-end justify-between gap-6">
           <div>
             <Eyebrow color="ultramarine">Experience</Eyebrow>
             <SplitText
@@ -100,7 +100,7 @@ export function ExperienceTimeline() {
             )}
           </div>
 
-          <ol className="flex flex-col gap-12">
+          <ol className="flex flex-col gap-8">
             {flatItems.map((item, i) => {
               const meta = kindMeta[item.kind];
               const Icon = meta.icon;

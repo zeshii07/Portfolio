@@ -17,7 +17,7 @@ export function KineticStatement() {
     >
       <NoiseOverlay opacity={0.08} />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 sm:px-8 sm:py-28 lg:py-36">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:py-20">
         <motion.h2
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

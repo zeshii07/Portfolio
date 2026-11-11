@@ -59,9 +59,9 @@ export function FeaturedNova({ onOpenProject }: FeaturedNovaProps) {
         </div>
       </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 sm:px-8 sm:py-28 lg:py-32">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
         {/* Section heading row */}
-        <div className="mb-12 flex items-end justify-between gap-6">
+        <div className="mb-8 flex items-end justify-between gap-6">
           <div>
             <Eyebrow color="volt">Featured project</Eyebrow>
             <div className="mt-4 flex items-baseline gap-6">
@@ -80,7 +80,7 @@ export function FeaturedNova({ onOpenProject }: FeaturedNovaProps) {
           </ArrowLink>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
           {/* Poster */}
           <div className="lg:col-span-7">
             <ImageMaskReveal from="left" duration={1.1}>

@@ -26,9 +26,9 @@ export function SkillConstellation() {
       <AmbientGlow variant="violet" className="left-[20%] top-[10%] h-[460px] w-[460px] opacity-40" />
       <GridLines variant="dark" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 sm:px-8 sm:py-28 lg:py-32">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
         {/* Header */}
-        <div className="mb-12 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
+        <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             <Eyebrow color="aqua">Capabilities</Eyebrow>
             <SplitText
@@ -47,7 +47,7 @@ export function SkillConstellation() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-12">
           {/* Mobile: segmented selector */}
           <div className="lg:hidden">
             <div

@@ -100,9 +100,9 @@ export function ContactScene() {
         <div className="absolute left-1/2 top-0 size-2 -translate-x-1/2 rounded-full bg-volt" />
       </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 sm:px-8 sm:py-28 lg:py-32">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
         {/* Header */}
-        <div className="mb-12 flex items-end justify-between gap-6">
+        <div className="mb-8 flex items-end justify-between gap-6">
           <Eyebrow color="volt">Contact</Eyebrow>
           <SectionNumber value="08" outline={false} className="text-white/30" />
         </div>
@@ -116,7 +116,7 @@ export function ContactScene() {
           stagger={0.06}
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Left: oversized email + social */}
           <div className="lg:col-span-5">
             <Reveal direction="up">

@@ -36,9 +36,9 @@ export function ProjectWall({ onOpenProject }: ProjectWallProps) {
       aria-label="Selected work"
       className="relative isolate bg-bone text-ink"
     >
-      <div className="mx-auto max-w-7xl px-6 py-20 sm:px-8 sm:py-28 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16 lg:py-20">
         {/* Header */}
-        <div className="mb-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-8 flex flex-col gap-5 sm:mb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
           <div>
             <Eyebrow color="violet">Selected work / 01—</Eyebrow>
             <SplitText
@@ -84,7 +84,7 @@ export function ProjectWall({ onOpenProject }: ProjectWallProps) {
         </div>
 
         {/* Asymmetric editorial layout — render each project with its own composition */}
-        <div className="flex flex-col gap-20 sm:gap-28">
+        <div className="flex flex-col gap-10 sm:gap-14 lg:gap-16">
           {filtered.map((project, i) => (
             <ProjectFeature
               key={project.slug}
@@ -97,7 +97,7 @@ export function ProjectWall({ onOpenProject }: ProjectWallProps) {
         </div>
 
         {filtered.length === 0 ? (
-          <div className="mt-16 rounded-2xl border border-dashed border-ink/20 bg-paper px-6 py-16 text-center">
+          <div className="mt-10 rounded-2xl border border-dashed border-ink/20 bg-paper px-6 py-12 text-center">
             <p className="font-display text-lg font-semibold text-ink">
               No projects match that filter.
             </p>
@@ -165,7 +165,7 @@ function ProjectFeature({
                   label={project.posterLabel}
                   accent={project.posterAccent}
                   category={project.category}
-                  className="aspect-[16/10] w-full"
+                  className="aspect-[4/3] sm:aspect-[16/10] w-full"
                 />
               </button>
             </ImageMaskReveal>
@@ -176,7 +176,7 @@ function ProjectFeature({
         </div>
       ) : layoutVariant === 1 ? (
         // Layout B: text left, image right
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-12">
           <div className="order-2 lg:order-1 lg:col-span-5">
             <ProjectCopyBlock project={project} onOpen={onOpen} reduce={reduce} />
           </div>
@@ -191,7 +191,7 @@ function ProjectFeature({
                   label={project.posterLabel}
                   accent={project.posterAccent}
                   category={project.category}
-                  className="aspect-[16/10] w-full"
+                  className="aspect-[4/3] sm:aspect-[16/10] w-full"
                 />
               </button>
             </ImageMaskReveal>
@@ -213,12 +213,12 @@ function ProjectFeature({
             aria-label={`Open case study: ${project.title}`}
             className="block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
           >
-            <ImageMaskReveal from="bottom" duration={1}>
+            <ImageMaskReveal from="bottom" duration={0.9}>
               <ProjectPoster
                 label={project.posterLabel}
                 accent={project.posterAccent}
                 category={project.category}
-                className="aspect-[21/9] w-full"
+                className="aspect-[16/9] sm:aspect-[21/9] w-full"
               />
             </ImageMaskReveal>
           </button>
@@ -261,7 +261,7 @@ function ProjectFeature({
               </h3>
             </Reveal>
             <Reveal delay={0.2} direction="up">
-              <p className="mt-6 max-w-md text-base leading-relaxed text-muted-dark">
+              <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-dark sm:text-base">
                 {project.summary}
               </p>
             </Reveal>
@@ -277,10 +277,10 @@ function ProjectFeature({
                 ))}
               </ul>
             </Reveal>
-            <Reveal delay={0.4} direction="up" className="mt-8">
+            <Reveal delay={0.4} direction="up" className="mt-6">
               <button
                 onClick={onOpen}
-                className="group inline-flex items-center gap-3 rounded-full bg-ink px-6 py-3.5 font-mono-token text-xs font-semibold uppercase tracking-[0.18em] text-bone transition-transform hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-3 rounded-full bg-ink px-5 py-3 font-mono-token text-[11px] font-semibold uppercase tracking-[0.18em] text-bone transition-transform hover:-translate-y-0.5 sm:px-6 sm:py-3.5 sm:text-xs"
               >
                 View case study
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
@@ -298,7 +298,7 @@ function ProjectFeature({
                   label={project.posterLabel}
                   accent={project.posterAccent}
                   category={project.category}
-                  className="aspect-[4/3] w-full"
+                  className="aspect-[4/3] sm:aspect-[3/2] w-full"
                 />
               </button>
             </ImageMaskReveal>

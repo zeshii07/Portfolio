@@ -16,8 +16,8 @@ export function SiteFooter() {
       {/* top accent line */}
       <div aria-hidden className="h-px w-full bg-gradient-to-r from-violet via-ultramarine to-aqua opacity-60" />
 
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-8 sm:py-20">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-10">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-12">
           {/* Wordmark + role */}
           <div className="md:col-span-5">
             <Link
@@ -104,7 +104,7 @@ export function SiteFooter() {
         </div>
 
         {/* bottom row */}
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-token-soft pt-6 sm:flex-row sm:items-center">
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-token-soft pt-6 sm:flex-row sm:items-center">
           <p className="font-mono-token text-[11px] uppercase tracking-[0.18em] text-muted-light">
             © {year} {person.name}
           </p>
