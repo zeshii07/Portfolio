@@ -28,7 +28,7 @@ export function HeroScene() {
       <AmbientGlow variant="violet" className="left-[-10%] top-[-20%] h-[640px] w-[640px]" drift pointer />
       <AmbientGlow variant="ultramarine" className="right-[-15%] top-[10%] h-[480px] w-[480px] opacity-70" drift />
       {/* Falling digits background — low opacity, doesn't affect readability */}
-      <FallingDigits opacity={0.07} />
+      <FallingDigits opacity={0.35} />
       <NoiseOverlay opacity={0.03} />
 
       {/* Top role label */}
@@ -51,7 +51,7 @@ export function HeroScene() {
           <h1 className="font-display text-[clamp(2.4rem,11vw,9rem)] font-bold leading-[0.92] tracking-[-0.04em] text-bone text-balance">
             <Line delay={0.2}>I build</Line>
             <Line delay={0.32}>
-              <span className="text-volt">digital</span> experiences
+              <span className="text-gradient-animated">digital</span> experiences
             </Line>
             <Line delay={0.44}>that turn complex</Line>
             <Line delay={0.56}>ideas into <RotatingWord /></Line>

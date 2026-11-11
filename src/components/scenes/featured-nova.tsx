@@ -8,7 +8,6 @@ import { getProjectBySlug } from "@/data/projects";
 import { Eyebrow } from "@/components/studio/eyebrow";
 import { SectionNumber } from "@/components/studio/section-number";
 import { ArrowLink } from "@/components/studio/arrow-link";
-import { ImageMaskReveal } from "@/components/motion/image-mask-reveal";
 import { Reveal } from "@/components/motion/reveal";
 import { AmbientGlow } from "@/components/visuals/ambient-glow";
 import { NoiseOverlay } from "@/components/visuals/noise-overlay";
@@ -83,16 +82,16 @@ export function FeaturedNova({ onOpenProject }: FeaturedNovaProps) {
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-6">
           {/* Poster */}
           <div className="lg:col-span-7">
-            <ImageMaskReveal from="left" duration={1.1}>
+            <div className="animate-reveal-clip-left">
               <button
                 type="button"
                 onClick={() => onOpenProject(project.slug)}
                 aria-label="Open Nova case study"
-                className="block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-ultramarine"
+                className="block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-4 focus-visible:ring-offset-ultramarine card-hover-lift rounded-2xl"
               >
                 <NovaPoster />
               </button>
-            </ImageMaskReveal>
+            </div>
 
             {/* Sliding sequence of small interface panels */}
             <div className="mt-6 grid grid-cols-3 gap-3">

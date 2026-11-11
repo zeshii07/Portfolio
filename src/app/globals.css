@@ -388,3 +388,79 @@
     animation: none !important;
   }
 }
+
+/* === Beautiful CSS animations that ALWAYS fire — never trap content === */
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(30px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes reveal-clip-left {
+  from { opacity: 0; clip-path: inset(0 0 0 100%); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+@keyframes reveal-clip-bottom {
+  from { opacity: 0; clip-path: inset(100% 0 0 0); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+@keyframes reveal-scale {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(139,77,255,0.3); }
+  50% { box-shadow: 0 0 40px rgba(139,77,255,0.6); }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes border-beam {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* Animation utility classes — content starts visible, animation enhances */
+.animate-reveal-up {
+  animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-reveal-clip-left {
+  animation: reveal-clip-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-reveal-clip-bottom {
+  animation: reveal-clip-bottom 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-reveal-scale {
+  animation: reveal-scale 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Gradient animated text */
+.text-gradient-animated {
+  background: linear-gradient(90deg, #8B4DFF, #344BFF, #5BE6D1, #8B4DFF);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Animated border beam */
+.border-beam {
+  position: relative;
+  background: linear-gradient(90deg, transparent, rgba(216,255,62,0.4), transparent);
+  background-size: 200% 100%;
+  animation: border-beam 3s linear infinite;
+}
+
+/* Project card hover lift */
+.card-hover-lift {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+.card-hover-lift:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(139,77,255,0.4);
+}

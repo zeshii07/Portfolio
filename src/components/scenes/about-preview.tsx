@@ -9,7 +9,6 @@ import { Eyebrow } from "@/components/studio/eyebrow";
 import { SectionNumber } from "@/components/studio/section-number";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitText } from "@/components/motion/split-text";
-import { ImageMaskReveal } from "@/components/motion/image-mask-reveal";
 import { NoiseOverlay } from "@/components/visuals/noise-overlay";
 
 export function AboutPreview() {
@@ -56,15 +55,15 @@ export function AboutPreview() {
             style={reduce ? undefined : { y: yPortrait }}
             className="relative w-full max-w-[220px] sm:max-w-[280px] lg:max-w-[340px]"
           >
-            <ImageMaskReveal from="bottom" duration={1}>
+            <div className="animate-reveal-clip-bottom">
               <motion.div
                 animate={reduce ? undefined : { y: [0, -6, 0] }}
                 transition={reduce ? undefined : { duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-ink/15 bg-bone shadow-[0_16px_40px_-16px_rgba(16,16,22,0.5)]"
+                className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-ink/15 bg-bone shadow-[0_16px_40px_-16px_rgba(16,16,22,0.5)] animate-glow-pulse"
               >
                 <PortraitImage />
               </motion.div>
-            </ImageMaskReveal>
+            </div>
 
             {/* Floating labels — positioned inside on mobile to prevent overflow */}
             <motion.span

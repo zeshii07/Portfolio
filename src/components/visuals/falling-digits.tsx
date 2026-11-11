@@ -4,37 +4,33 @@ import * as React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 interface FallingDigitsProps {
-  /** number of digit columns */
   columns?: number;
   className?: string;
-  /** opacity of the digits (keep low for readability) */
   opacity?: number;
 }
 
-const DIGITS = ["0", "1", "0", "1", "0", "1", "0", "1"];
+const DIGIT_CHARS = ["0", "1", "0", "1", "{", "}", "<", ">", "/", ";", "0", "1"];
+const COLORS = ["#8B4DFF", "#D8FF3E", "#5BE6D1", "#344BFF", "#F6F1E8"];
 
 /**
  * Matrix-style falling digits background.
- * Low opacity so text on top stays fully readable.
- * Respects prefers-reduced-motion (static fallback).
+ * HIGHLY VISIBLE — colorful, larger digits that create a digital rain effect.
  */
 export function FallingDigits({
-  columns = 14,
+  columns = 16,
   className = "",
-  opacity = 0.08,
+  opacity = 0.35,
 }: FallingDigitsProps) {
   const reduce = useReducedMotion();
-  const containerRef = React.useRef<HTMLDivElement | null>(null);
   const [cols, setCols] = React.useState(columns);
 
-  // Adjust columns based on viewport width
   React.useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
-      if (w < 480) setCols(8);
-      else if (w < 768) setCols(12);
-      else if (w < 1024) setCols(16);
-      else setCols(20);
+      if (w < 480) setCols(10);
+      else if (w < 768) setCols(14);
+      else if (w < 1024) setCols(20);
+      else setCols(24);
     };
     update();
     window.addEventListener("resize", update);
@@ -43,7 +39,6 @@ export function FallingDigits({
 
   return (
     <div
-      ref={containerRef}
       aria-hidden
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
       style={{ opacity }}
@@ -56,32 +51,25 @@ export function FallingDigits({
 }
 
 function DigitColumn({ index, reduce }: { index: number; reduce: boolean | null }) {
-  // Each column has different speed, delay, and position
-  const speed = 8 + (index % 5) * 3; // 8-20 seconds
-  const delay = (index * 0.7) % 4;
-  const left = `${(index / 20) * 100}%`;
-  const fontSize = 11 + (index % 3) * 2; // 11-15px
-  const length = 14 + (index % 6);
+  const speed = 6 + (index % 5) * 2;
+  const delay = (index * 0.5) % 3;
+  const left = `${(index / 24) * 100}%`;
+  const fontSize = 14 + (index % 3) * 3;
+  const length = 12 + (index % 5);
+  const color = COLORS[index % COLORS.length];
 
-  // Generate the digit string for this column
   const digits = React.useMemo(() => {
     return Array.from({ length }).map((_, i) => ({
-      char: DIGITS[(index + i) % DIGITS.length],
-      opacity: Math.max(0.2, 1 - i / length),
+      char: DIGIT_CHARS[(index + i * 3) % DIGIT_CHARS.length],
+      opacity: Math.max(0.15, 1 - (i / length) * 0.8),
     }));
   }, [index, length]);
 
   if (reduce) {
-    // Static fallback — just show faint digits without animation
     return (
-      <div
-        className="absolute top-0 font-mono-token leading-tight"
-        style={{ left, fontSize: `${fontSize}px` }}
-      >
+      <div className="absolute top-0 font-mono-token leading-tight" style={{ left, fontSize: `${fontSize}px`, color }}>
         {digits.map((d, i) => (
-          <div key={i} style={{ opacity: d.opacity * 0.5 }} className="text-bone">
-            {d.char}
-          </div>
+          <div key={i} style={{ opacity: d.opacity * 0.4 }}>{d.char}</div>
         ))}
       </div>
     );
@@ -90,18 +78,13 @@ function DigitColumn({ index, reduce }: { index: number; reduce: boolean | null 
   return (
     <motion.div
       className="absolute font-mono-token leading-tight"
-      style={{ left, fontSize: `${fontSize}px` }}
-      initial={{ y: "-100%" }}
+      style={{ left, fontSize: `${fontSize}px`, color }}
+      initial={{ y: "-50%" }}
       animate={{ y: "100%" }}
-      transition={{
-        duration: speed,
-        delay,
-        repeat: Infinity,
-        ease: "linear",
-      }}
+      transition={{ duration: speed, delay, repeat: Infinity, ease: "linear" }}
     >
       {digits.map((d, i) => (
-        <div key={i} style={{ opacity: d.opacity }} className="text-bone">
+        <div key={i} style={{ opacity: d.opacity, textShadow: `0 0 8px ${color}` }}>
           {d.char}
         </div>
       ))}

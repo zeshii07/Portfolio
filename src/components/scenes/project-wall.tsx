@@ -9,7 +9,6 @@ import { Eyebrow } from "@/components/studio/eyebrow";
 import { SectionNumber } from "@/components/studio/section-number";
 import { Reveal } from "@/components/motion/reveal";
 import { SplitText } from "@/components/motion/split-text";
-import { SimpleReveal } from "@/components/motion/simple-reveal";
 import { ProjectPoster } from "@/components/ui-portfolio/project-poster";
 import { StatusBadge } from "@/components/ui-portfolio/badge";
 import { useState, useMemo } from "react";
@@ -155,11 +154,11 @@ function ProjectFeature({
         // Layout A: image left, text right (portrait-feel poster)
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
-            <SimpleReveal >
+            <div className="animate-reveal-clip-left">
               <button
                 onClick={onOpen}
                 aria-label={`Open case study: ${project.title}`}
-                className="block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
+                className="block w-full text-left card-hover-lift rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
               >
                 <ProjectPoster
                   label={project.posterLabel}
@@ -169,7 +168,7 @@ function ProjectFeature({
                   className="aspect-[4/3] sm:aspect-[16/10] w-full"
                 />
               </button>
-            </SimpleReveal>
+            </div>
           </div>
           <div className="lg:col-span-5">
             <ProjectCopyBlock project={project} onOpen={onOpen} reduce={reduce} />
@@ -182,11 +181,11 @@ function ProjectFeature({
             <ProjectCopyBlock project={project} onOpen={onOpen} reduce={reduce} />
           </div>
           <div className="order-1 lg:order-2 lg:col-span-7">
-            <SimpleReveal >
+            <div className="animate-reveal-clip-left">
               <button
                 onClick={onOpen}
                 aria-label={`Open case study: ${project.title}`}
-                className="block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
+                className="block w-full text-left card-hover-lift rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
               >
                 <ProjectPoster
                   label={project.posterLabel}
@@ -196,7 +195,7 @@ function ProjectFeature({
                   className="aspect-[4/3] sm:aspect-[16/10] w-full"
                 />
               </button>
-            </SimpleReveal>
+            </div>
           </div>
         </div>
       ) : layoutVariant === 2 ? (
@@ -213,9 +212,9 @@ function ProjectFeature({
           <button
             onClick={onOpen}
             aria-label={`Open case study: ${project.title}`}
-            className="block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
+            className="block w-full text-left card-hover-lift rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
           >
-            <SimpleReveal >
+            <div className="animate-reveal-clip-left">
               <ProjectPoster
                 label={project.posterLabel}
                 accent={project.posterAccent}
@@ -223,7 +222,7 @@ function ProjectFeature({
                   variant={project.posterVariant || "terminal"}
                 className="aspect-[16/9] sm:aspect-[21/9] w-full"
               />
-            </SimpleReveal>
+            </div>
           </button>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-12 sm:gap-8">
             <h3
@@ -291,11 +290,11 @@ function ProjectFeature({
             </Reveal>
           </div>
           <div className="lg:col-span-6">
-            <SimpleReveal >
+            <div className="animate-reveal-clip-left">
               <button
                 onClick={onOpen}
                 aria-label={`Open case study: ${project.title}`}
-                className="block w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
+                className="block w-full text-left card-hover-lift rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-bone"
               >
                 <ProjectPoster
                   label={project.posterLabel}
@@ -305,7 +304,7 @@ function ProjectFeature({
                   className="aspect-[4/3] sm:aspect-[3/2] w-full"
                 />
               </button>
-            </SimpleReveal>
+            </div>
           </div>
         </div>
       )}
