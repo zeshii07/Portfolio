@@ -48,7 +48,7 @@ export function HeroScene() {
           style={reduce ? undefined : { y: yCopy, opacity: opacityCopy }}
           className="lg:col-span-7"
         >
-          <h1 className="font-display text-[clamp(2.4rem,11vw,9rem)] font-bold leading-[0.92] tracking-[-0.04em] text-bone text-balance">
+          <h1 className="font-display text-[clamp(1.8rem,8vw,6rem)] font-bold leading-[0.92] tracking-[-0.04em] text-bone text-balance">
             <Line delay={0.2}>I build</Line>
             <Line delay={0.32}>
               <span className="text-gradient-animated">digital</span> experiences
