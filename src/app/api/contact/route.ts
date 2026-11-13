@@ -66,6 +66,9 @@ export async function POST(request: Request) {
 
   const toEmail = process.env.CONTACT_TO_EMAIL;
   const fromEmail = process.env.CONTACT_FROM_EMAIL;
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+  const smtpHost = process.env.SMTP_HOST;
 
   if (!toEmail || !fromEmail) {
     // Server misconfiguration. Do not leak the specifics to the client.
@@ -74,6 +77,27 @@ export async function POST(request: Request) {
       { ok: false, error: "Could not deliver your message right now. Please email me directly." },
       { status: 503 },
     );
+  }
+
+  if (!smtpHost || !smtpUser || !smtpPass) {
+    if (process.env.NODE_ENV === "production") {
+      // SMTP not configured in production — email will not be delivered.
+      // Log loudly so the deployer notices; return a graceful error so
+      // the visitor is not told "sent" when nothing was sent.
+      console.error(
+        "[contact] SMTP env vars missing (SMTP_HOST/SMTP_USER/SMTP_PASS). Email will not be delivered.",
+      );
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Email delivery is not configured on the server yet. Please email me directly at the address shown on this page.",
+        },
+        { status: 503 },
+      );
+    }
+    // In dev/preview, fall through so the email helper's safe dev log
+    // path runs and the form flow can be exercised end-to-end.
   }
 
   try {

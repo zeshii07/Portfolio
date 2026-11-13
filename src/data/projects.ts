@@ -132,6 +132,26 @@ export const projects: Project[] = [
     ],
     outcome:
       "Nova currently supports multi-tenant configuration, structured conversation flows, FAQ retrieval, lead capture, and a dashboard inbox. Analytics, scheduling, and additional channel integrations are on the roadmap and clearly labeled as planned. The architecture is designed so each new channel or capability can be added without rewriting the conversation engine.",
+    /**
+     * Headline metrics shown on the Nova case study. Every figure
+     * is illustrative dashboard / projected data — NOT a real
+     * production measurement. `isDemoData: true` forces the UI
+     * to render a visible "Demo Data" disclaimer badge alongside
+     * these numbers so they are never mistaken for customer results.
+     */
+    stats: [
+      { label: "Conversations handled", value: "1,284", isDemoData: true, note: "Illustrative dashboard volume — not a live customer figure." },
+      { label: "Deflection rate", value: "62%", isDemoData: true, note: "Simulated metric shown on the demo dashboard." },
+      { label: "Leads captured", value: "84", isDemoData: true, note: "Illustrative lead count from the demo tenant." },
+      { label: "Active tenants (demo)", value: "5", isDemoData: true, note: "Demo tenants configured for the showcase build." },
+      { label: "Projected growth", value: "+62%", isDemoData: true, note: "Projected, not measured. Shown only as a target." },
+    ],
+    screenshots: [
+      { src: "/projects/nova/dashboard.png", caption: "Operator dashboard inbox — per-tenant conversations, status, lead tags.", placeholder: true },
+      { src: "/projects/nova/tenant-config.png", caption: "Tenant configuration panel — branding tokens, escalation contacts, response tone.", placeholder: true },
+      { src: "/projects/nova/lead-detail.png", caption: "Lead detail drawer — captured structured fields and forward action.", placeholder: true },
+    ],
+    showArchitectureDiagram: true,
     links: [
       { label: "Case study", href: "#", type: "article" },
       { label: "Repository (private)", href: "#", type: "private" },
@@ -244,6 +264,12 @@ export const projects: Project[] = [
     ],
     outcome:
       "Hirely AI currently ships role-specific question banks, structured answer feedback, resume review, and practice history. The conversational mock interview mode is planned and clearly labeled. The product is built so new roles can be added without changing the practice engine.",
+    screenshots: [
+      { src: "/projects/hirely/practice.png", caption: "Practice flow — role selection, question card, answer input.", placeholder: true },
+      { src: "/projects/hirely/feedback.png", caption: "Structured answer feedback — strengths, gaps, suggested rewrite.", placeholder: true },
+      { src: "/projects/hirely/resume.png", caption: "Resume review module — role alignment and concrete wording suggestions.", placeholder: true },
+    ],
+    showArchitectureDiagram: true,
     links: [
       { label: "Live demo", href: "#", type: "live" },
       { label: "Repository (private)", href: "#", type: "private" },
@@ -356,29 +382,42 @@ export const projects: Project[] = [
     ],
     outcome:
       "The system replaced spreadsheet tracking with a traceable stock ledger, role-based access, and reports. Manual counting errors dropped, and stock movements became auditable. The project also served as the basis for academic database coursework using Oracle SQL.",
+    screenshots: [
+      { src: "/projects/inventory/dashboard.png", caption: "Stock dashboard — current levels, low-stock alerts, recent movements.", placeholder: true },
+      { src: "/projects/inventory/movement.png", caption: "Stock movement form — quantity, reason, responsible user, audit trail.", placeholder: true },
+      { src: "/projects/inventory/reports.png", caption: "Movement summary report — filter by date and category, export.", placeholder: true },
+    ],
+    showArchitectureDiagram: true,
     links: [
       { label: "Repository", href: "#", type: "github" },
     ],
   },
+  /**
+   * Client website — ZAIS Technologies.
+   * Live at https://zaishtech.vercel.app
+   * One of three concrete client deliveries shown on the portfolio
+   * (replaces the previous generic "Client Websites" card that
+   * the audit flagged as needing specific evidence).
+   */
   {
-    slug: "client-websites",
-    title: "Client Websites & E-commerce",
+    slug: "client-zaishtech",
+    title: "ZAIS Technologies — Business Website",
     summary:
-      "Delivered responsive business websites and e-commerce frontends for clients, including deployment, SEO basics, and handover.",
+      "Delivered responsive business website for ZAIS Technologies with deployment, on-page SEO, and handover. Live at zaishtech.vercel.app.",
     category: "Full-stack",
     projectType: "client",
     status: "Live",
-    dateLabel: "2022 — 2024",
-    role: "Frontend developer · Design implementation, deployment, SEO basics",
+    dateLabel: "2024",
+    role: "Frontend developer · Design implementation, deployment, SEO",
     isFeatured: true,
-    posterLabel: "Web",
+    posterLabel: "ZAIS",
     posterAccent: "#FF603D",
     posterVariant: "terminal",
-    technologies: ["React", "Next.js", "Tailwind CSS", "SEO", "Deployment"],
+    technologies: ["Next.js", "React", "Tailwind CSS", "SEO", "Vercel"],
     problem:
-      "Small businesses needed fast, mobile-friendly websites they could maintain, with basics like meta tags, sitemaps, and contact routes set up correctly from day one.",
+      "ZAIS Technologies needed a fast, mobile-friendly business website they could maintain in-house, with meta tags, sitemap, and contact routes configured from day one.",
     solution:
-      "Delivered responsive websites built with React/Next.js and Tailwind. Each site was deployed, configured with sitemap and robots, basic on-page SEO, and handed over with documentation.",
+      "Delivered a responsive Next.js + Tailwind site deployed on Vercel. On-page SEO (titles, meta descriptions, Open Graph, semantic headings) was set up per page, plus a working contact route with server-side validation.",
     features: [
       {
         title: "Responsive layouts",
@@ -386,19 +425,19 @@ export const projects: Project[] = [
           "Mobile-first layouts tested at common breakpoints; no horizontal overflow on small screens.",
       },
       {
-        title: "On-page SEO basics",
+        title: "On-page SEO",
         description:
-          "Per-page titles, meta descriptions, Open Graph tags, semantic headings, and a sitemap.",
+          "Per-page titles, meta descriptions, Open Graph tags, semantic headings, and a generated sitemap.",
       },
       {
-        title: "Contact routes",
+        title: "Contact route",
         description:
-          "Working contact forms with validation and a safe submission flow.",
+          "Working contact form with server-side validation and a safe submission flow.",
       },
       {
-        title: "Deployment and handover",
+        title: "Deployment + handover",
         description:
-          "Sites deployed with TLS; documentation covers content updates so the client can edit copy without a developer.",
+          "Deployed on Vercel with TLS; documentation covers content updates so the client can edit copy without a developer.",
       },
       {
         title: "Performance hygiene",
@@ -407,43 +446,176 @@ export const projects: Project[] = [
       },
     ],
     architecture: [
-      {
-        label: "Frontend",
-        details: "React / Next.js with Tailwind CSS for maintainable styling.",
-      },
-      {
-        label: "SEO",
-        details: "Metadata, sitemap, robots, Open Graph, and semantic HTML landmarks.",
-      },
-      {
-        label: "Deployment",
-        details: "Hosted on a Next.js-compatible platform with TLS and CI-friendly builds.",
-      },
+      { label: "Frontend", details: "Next.js App Router with Tailwind CSS for maintainable styling." },
+      { label: "SEO", details: "Metadata, sitemap, robots, Open Graph, and semantic HTML landmarks." },
+      { label: "Deployment", details: "Hosted on Vercel with TLS and CI-friendly builds." },
     ],
     stack: [
-      {
-        name: "Next.js + Tailwind",
-        why: "Fast to deliver responsive, SEO-friendly sites that clients can extend later.",
-      },
-      {
-        name: "Static + server routes",
-        why: "Marketing pages stay static for speed; the contact form uses a small server route.",
-      },
+      { name: "Next.js + Tailwind", why: "Fast to deliver responsive, SEO-friendly sites the client can extend later." },
+      { name: "Vercel", why: "Zero-config Next.js hosting with edge TLS, image optimization, and PR previews." },
     ],
     challenges: [
       {
-        challenge:
-          "Clients wanting heavy animations that would hurt performance and mobile usability.",
-        alternatives:
-          "Considered shipping the animations as requested.",
+        challenge: "Balancing a polished visual identity with mobile load time.",
+        alternatives: "Considered shipping heavier animations as originally requested.",
         resolution:
-          "Proposed lightweight motion for key interactions and explained the trade-off in plain language. Clients accepted the lighter approach once they saw the speed difference on mobile.",
+          "Proposed lightweight motion for key interactions and explained the trade-off in plain language. Client accepted the lighter approach once they saw the mobile speed difference.",
       },
     ],
     outcome:
-      "Client sites load fast, work on mobile, and are easy to maintain. Specific client names and screenshots are not displayed publicly without permission; this card summarizes the type of work delivered. Live public links are shared only where the client has agreed.",
+      "ZAIS Technologies' site is live, mobile-fast, SEO-configured, and maintainable in-house. The live deployment is linked below.",
+    screenshots: [
+      { src: "/projects/zaishtech/home.png", caption: "Homepage — hero, services overview, primary CTA.", placeholder: true },
+      { src: "/projects/zaishtech/services.png", caption: "Services page — capability sections and contact route.", placeholder: true },
+      { src: "/projects/zaishtech/mobile.png", caption: "Mobile view — responsive layout at common breakpoints.", placeholder: true },
+    ],
     links: [
-      { label: "Contact for references", href: "#contact", type: "live" },
+      { label: "Live website", href: "https://zaishtech.vercel.app", type: "live" },
+    ],
+  },
+  /**
+   * Client website — Lucky Crystal.
+   * Live at https://lucky-crystal.infinityfree.me
+   */
+  {
+    slug: "client-lucky-crystal",
+    title: "Lucky Crystal — E-commerce Frontend",
+    summary:
+      "Delivered e-commerce frontend for Lucky Crystal with product browsing, responsive layout, and deployment. Live at lucky-crystal.infinityfree.me.",
+    category: "Full-stack",
+    projectType: "client",
+    status: "Live",
+    dateLabel: "2023",
+    role: "Frontend developer · Product UI, responsive layout, deployment",
+    isFeatured: true,
+    posterLabel: "Crystal",
+    posterAccent: "#5BE6D1",
+    posterVariant: "cards",
+    technologies: ["React", "Tailwind CSS", "Responsive UI", "PHP host", "SEO basics"],
+    problem:
+      "Lucky Crystal needed an online product catalog that worked on low-end mobile devices and loaded quickly on shared hosting.",
+    solution:
+      "Built a lightweight product catalog frontend with React + Tailwind, optimized for low-bandwidth mobile access. Deployed on a shared PHP host with handover documentation for content updates.",
+    features: [
+      {
+        title: "Product catalog UI",
+        description:
+          "Browseable product grid with categories, search, and detail pages optimized for mobile.",
+      },
+      {
+        title: "Low-bandwidth mobile UX",
+        description:
+          "Compressed images, minimal client JS, and deferred non-critical assets so pages load on slow connections.",
+      },
+      {
+        title: "Responsive layout",
+        description:
+          "Mobile-first layout that adapts cleanly from small phones to desktop.",
+      },
+      {
+        title: "Shared-host deployment",
+        description:
+          "Static-build output deployed to a PHP shared host with handover notes for content edits.",
+      },
+    ],
+    architecture: [
+      { label: "Frontend", details: "React + Tailwind CSS compiled to a static build for shared-host deployment." },
+      { label: "Hosting", details: "Deployed on InfinityFree shared PHP hosting with TLS where available." },
+    ],
+    stack: [
+      { name: "React + Tailwind", why: "Lightweight component UI that compiles to static assets suitable for shared hosting." },
+      { name: "Static build", why: "No server runtime required — keeps cost low and works on shared PHP hosts." },
+    ],
+    challenges: [
+      {
+        challenge: "Shared hosting constraints — no Node.js runtime, limited server config.",
+        alternatives: "Considered a Node-based server deployment.",
+        resolution:
+          "Compiled the frontend to static assets so it could be served from a PHP shared host without runtime requirements, while still keeping the React component model for the build.",
+      },
+    ],
+    outcome:
+      "Lucky Crystal's catalog is live on shared hosting, accessible on low-end mobile devices, and maintainable by the client. The live deployment is linked below.",
+    screenshots: [
+      { src: "/projects/lucky-crystal/catalog.png", caption: "Product catalog — grid with category filter.", placeholder: true },
+      { src: "/projects/lucky-crystal/detail.png", caption: "Product detail page with image, description, and inquiry CTA.", placeholder: true },
+      { src: "/projects/lucky-crystal/mobile.png", caption: "Mobile catalog view — low-bandwidth optimized.", placeholder: true },
+    ],
+    links: [
+      { label: "Live website", href: "https://lucky-crystal.infinityfree.me", type: "live" },
+    ],
+  },
+  /**
+   * Client website — BYT Clean.
+   * Live at https://bytclean.ae
+   */
+  {
+    slug: "client-bytclean",
+    title: "BYT Clean — Services Website",
+    summary:
+      "Delivered services website for BYT Clean (UAE) with booking contact flow, responsive layout, and deployment. Live at bytclean.ae.",
+    category: "Full-stack",
+    projectType: "client",
+    status: "Live",
+    dateLabel: "2024",
+    role: "Frontend developer · Services UI, booking route, deployment",
+    isFeatured: true,
+    posterLabel: "BYT",
+    posterAccent: "#D8FF3E",
+    posterVariant: "mobile",
+    technologies: ["Next.js", "React", "Tailwind CSS", "SEO", "Vercel"],
+    problem:
+      "BYT Clean (a UAE cleaning services business) needed a mobile-first services website that turned visitors into booking inquiries, with Arabic-English audience considerations and proper SEO for the .ae market.",
+    solution:
+      "Delivered a responsive Next.js + Tailwind services website deployed on Vercel. Service pages, an inquiry contact route with server-side validation, per-page SEO for the .ae market, and handover documentation for content updates.",
+    features: [
+      {
+        title: "Services pages",
+        description:
+          "Per-service pages with clear scope, pricing tier guidance, and an inquiry CTA — designed mobile-first.",
+      },
+      {
+        title: "Booking inquiry route",
+        description:
+          "Working contact/inquiry form with server-side validation and a safe submission flow.",
+      },
+      {
+        title: "Local SEO (.ae)",
+        description:
+          "Per-page titles, meta descriptions, Open Graph, semantic headings, sitemap, and region-aware metadata.",
+      },
+      {
+        title: "Deployment + handover",
+        description:
+          "Deployed on Vercel with TLS; documentation covers content updates so the client can edit copy without a developer.",
+      },
+    ],
+    architecture: [
+      { label: "Frontend", details: "Next.js App Router + Tailwind CSS for maintainable, mobile-first styling." },
+      { label: "SEO", details: "Metadata, sitemap, robots, Open Graph, semantic HTML, and .ae region-aware tags." },
+      { label: "Deployment", details: "Hosted on Vercel with TLS and CI-friendly builds." },
+    ],
+    stack: [
+      { name: "Next.js + Tailwind", why: "Mobile-first services UI with fast initial load and clean per-page SEO." },
+      { name: "Vercel", why: "Edge TLS, image optimization, and PR previews for an iterative launch." },
+    ],
+    challenges: [
+      {
+        challenge: "Designing a booking flow that worked for both quick mobile visitors and detail-oriented desktop users.",
+        alternatives: "Considered a long single-page form.",
+        resolution:
+          "Split into a short inquiry form (mobile-friendly) plus a service-detail page (desktop-friendly), with the same server route behind both — so submissions are validated consistently regardless of entry point.",
+      },
+    ],
+    outcome:
+      "BYT Clean's services site is live on bytclean.ae, mobile-fast, SEO-configured for the UAE market, and maintainable in-house. The live deployment is linked below.",
+    screenshots: [
+      { src: "/projects/bytclean/home.png", caption: "Homepage — services overview, hero, primary booking CTA.", placeholder: true },
+      { src: "/projects/bytclean/service.png", caption: "Service detail page — scope, pricing tier, inquiry form.", placeholder: true },
+      { src: "/projects/bytclean/mobile.png", caption: "Mobile view — short inquiry form optimized for touch.", placeholder: true },
+    ],
+    links: [
+      { label: "Live website", href: "https://bytclean.ae", type: "live" },
     ],
   },
   {

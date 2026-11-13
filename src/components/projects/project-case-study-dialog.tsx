@@ -19,11 +19,16 @@ import {
   GitBranch,
   CheckCircle2,
   AlertCircle,
+  BarChart3,
 } from "lucide-react";
 import type { Project } from "@/types/portfolio";
 import { projects, getProjectBySlug } from "@/data/projects";
 import { TechBadge, StatusBadge } from "@/components/ui-portfolio/badge";
 import { ProjectPoster } from "@/components/ui-portfolio/project-poster";
+import {
+  ArchitectureDiagram,
+  type ArchitectureDiagramVariant,
+} from "@/components/visuals/architecture-diagram";
 import { cn } from "@/lib/utils";
 
 interface ProjectCaseStudyDialogProps {
@@ -204,6 +209,9 @@ function CaseStudyBody({
                 </li>
               ))}
             </ul>
+            {project.showArchitectureDiagram !== false ? (
+              <ArchitectureDiagramBlock slug={project.slug} />
+            ) : null}
           </Chapter>
 
           <Chapter eyebrow="06" title="Technology stack">
@@ -258,26 +266,69 @@ function CaseStudyBody({
             </ul>
           </Chapter>
 
-          <Chapter eyebrow="08" title="Screenshots & demo">
-            <div className="rounded-xl border border-dashed border-token-dark bg-paper p-6 text-center">
-              <div className="mx-auto inline-flex items-center justify-center rounded-lg border border-token-dark bg-bone p-3 text-muted-dark">
-                <Wrench className="size-5" aria-hidden />
+          {project.stats && project.stats.length > 0 ? (
+            <Chapter eyebrow="08" title="Headline metrics">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-tangerine/40 bg-tangerine/10 px-3 py-1.5">
+                <AlertCircle className="size-3.5 text-tangerine" aria-hidden />
+                <span className="font-mono-token text-[10px] uppercase tracking-[0.22em] text-tangerine">
+                  Demo data — illustrative, not real customer results
+                </span>
               </div>
-              <p className="mt-3 font-display text-sm font-semibold text-ink">
-                Annotated screenshots coming soon
-              </p>
-              <p className="mx-auto mt-1 max-w-md text-sm text-muted-dark">
-                Public screenshots are added only with the appropriate permissions.
-                Live demos are linked below where they exist.
-              </p>
-            </div>
+              <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+                {project.stats.map((stat) => (
+                  <li
+                    key={stat.label}
+                    className="flex flex-col gap-1 rounded-xl border border-token-dark bg-paper p-4"
+                  >
+                    <BarChart3 className="size-4 text-ultramarine" aria-hidden />
+                    <span className="font-display text-lg font-bold text-ink">{stat.value}</span>
+                    <span className="font-mono-token text-[10px] uppercase tracking-[0.18em] text-muted-dark">
+                      {stat.label}
+                    </span>
+                    {stat.isDemoData ? (
+                      <span className="mt-1 inline-block w-fit rounded bg-tangerine/15 px-1.5 py-0.5 font-mono-token text-[9px] uppercase tracking-[0.18em] text-tangerine">
+                        demo
+                      </span>
+                    ) : null}
+                    {stat.note ? (
+                      <p className="mt-1 text-[11px] leading-snug text-muted-dark">{stat.note}</p>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            </Chapter>
+          ) : null}
+
+          <Chapter eyebrow={project.stats ? "09" : "08"} title="Screenshots & demo">
+            {project.screenshots && project.screenshots.length > 0 ? (
+              <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {project.screenshots.map((shot, i) => (
+                  <li key={i}>
+                    <ScreenshotFrame src={shot.src} caption={shot.caption} placeholder={shot.placeholder} />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="rounded-xl border border-dashed border-token-dark bg-paper p-6 text-center">
+                <div className="mx-auto inline-flex items-center justify-center rounded-lg border border-token-dark bg-bone p-3 text-muted-dark">
+                  <Wrench className="size-5" aria-hidden />
+                </div>
+                <p className="mt-3 font-display text-sm font-semibold text-ink">
+                  Annotated screenshots coming soon
+                </p>
+                <p className="mx-auto mt-1 max-w-md text-sm text-muted-dark">
+                  Public screenshots are added only with the appropriate permissions.
+                  Live demos are linked below where they exist.
+                </p>
+              </div>
+            )}
           </Chapter>
 
-          <Chapter eyebrow="09" title="Outcome">
+          <Chapter eyebrow={project.stats ? "10" : "09"} title="Outcome">
             <p className="text-base leading-relaxed text-ink/80">{project.outcome}</p>
           </Chapter>
 
-          <Chapter eyebrow="10" title="Links">
+          <Chapter eyebrow={project.stats ? "11" : "10"} title="Links">
             <ul className="flex flex-wrap gap-3">
               {project.links.map((link) => {
                 const isPrivate = link.type === "private";
@@ -371,6 +422,143 @@ function Meta({
       </dt>
       <dd className="text-sm text-ink">{value}</dd>
     </div>
+  );
+}
+
+/**
+ * Inline SVG architecture diagram shown in the Architecture chapter
+ * when the project opts in (showArchitectureDiagram !== false).
+ * Variant is derived from the project slug.
+ */
+function ArchitectureDiagramBlock({ slug }: { slug: string }) {
+  const variantMap: Record<string, ArchitectureDiagramVariant> = {
+    nova: "nova",
+    "hirely-ai": "hirely",
+    "inventory-management-system": "inventory",
+    "client-zaishtech": "client",
+    "client-lucky-crystal": "client",
+    "client-bytclean": "client",
+    "network-security-lab": "generic",
+  };
+  const variant = variantMap[slug] ?? "generic";
+  return (
+    <div className="mt-4 overflow-hidden rounded-xl border border-token-dark bg-ink p-4">
+      <div className="mb-3 flex items-center justify-between">
+        <span className="font-mono-token text-[10px] uppercase tracking-[0.22em] text-volt">
+          Architecture diagram
+        </span>
+        <span className="font-mono-token text-[9px] uppercase tracking-[0.22em] text-muted-light">
+          illustrative · not deployment-specific
+        </span>
+      </div>
+      <ArchitectureDiagram
+        variant={variant}
+        className="w-full h-auto text-bone"
+        title={`${slug} architecture diagram`}
+      />
+    </div>
+  );
+}
+
+/**
+ * Screenshot frame. When `placeholder: true` (or the file is not yet
+ * present), renders a labelled browser-frame mock with the project
+ * path clearly shown — so it is obvious that a real screenshot needs
+ * to be dropped in, but the layout is not broken.
+ *
+ * When the screenshot file is added to /public, set placeholder:false
+ * in the data file and the image renders.
+ */
+function ScreenshotFrame({
+  src,
+  caption,
+  placeholder,
+}: {
+  src: string;
+  caption: string;
+  placeholder?: boolean;
+}) {
+  const [errored, setErrored] = React.useState(false);
+  const showPlaceholder = placeholder || errored;
+
+  if (showPlaceholder) {
+    return (
+      <figure className="overflow-hidden rounded-xl border border-token-dark bg-ink">
+        {/* Browser frame mock */}
+        <div className="flex items-center gap-2 border-b border-token-soft bg-ink-soft px-3 py-2">
+          <span className="size-2.5 rounded-full bg-tangerine/70" aria-hidden />
+          <span className="size-2.5 rounded-full bg-volt/70" aria-hidden />
+          <span className="size-2.5 rounded-full bg-aqua/70" aria-hidden />
+          <span className="ml-2 truncate font-mono-token text-[10px] text-muted-light">
+            {src}
+          </span>
+        </div>
+        {/* Placeholder body */}
+        <div className="relative aspect-[16/10] w-full">
+          <svg
+            aria-hidden
+            className="absolute inset-0 size-full"
+            viewBox="0 0 400 250"
+            preserveAspectRatio="xMidYMid slice"
+          >
+            <defs>
+              <linearGradient id="shot-bg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#101016" />
+                <stop offset="100%" stopColor="#1B1B26" />
+              </linearGradient>
+            </defs>
+            <rect width="400" height="250" fill="url(#shot-bg)" />
+            {/* Grid */}
+            {Array.from({ length: 6 }).map((_, i) => (
+              <line key={`v-${i}`} x1={(i + 1) * 55} y1={0} x2={(i + 1) * 55} y2={250} stroke="#1B1B26" strokeWidth={1} />
+            ))}
+            {Array.from({ length: 4 }).map((_, i) => (
+              <line key={`h-${i}`} x1={0} y1={(i + 1) * 50} x2={400} y2={(i + 1) * 50} stroke="#1B1B26" strokeWidth={1} />
+            ))}
+            {/* Center icon — simple inline SVG, no React component */}
+            <circle cx="200" cy="115" r="22" fill="none" stroke="#8B4DFF" strokeWidth={1.5} strokeDasharray="3 3" />
+            {/* Mountain + sun pictogram (image icon) */}
+            <circle cx="194" cy="109" r="3" fill="#8B4DFF" />
+            <path d="M186 124 L196 113 L206 124 Z" fill="none" stroke="#8B4DFF" strokeWidth={1.5} strokeLinejoin="round" />
+            <text x="200" y="160" textAnchor="middle" fill="#F6F1E8" fontFamily="Space Grotesk, sans-serif" fontSize="13" fontWeight="600">
+              Screenshot placeholder
+            </text>
+            <text x="200" y="180" textAnchor="middle" fill="#9CA3B0" fontFamily="JetBrains Mono, monospace" fontSize="10">
+              drop PNG at /public{src}
+            </text>
+          </svg>
+        </div>
+        <figcaption className="border-t border-token-soft px-3 py-2 text-xs text-muted-light">
+          {caption}
+        </figcaption>
+      </figure>
+    );
+  }
+
+  return (
+    <figure className="overflow-hidden rounded-xl border border-token-dark bg-ink">
+      <div className="flex items-center gap-2 border-b border-token-soft bg-ink-soft px-3 py-2">
+        <span className="size-2.5 rounded-full bg-tangerine/70" aria-hidden />
+        <span className="size-2.5 rounded-full bg-volt/70" aria-hidden />
+        <span className="size-2.5 rounded-full bg-aqua/70" aria-hidden />
+        <span className="ml-2 truncate font-mono-token text-[10px] text-muted-light">
+          {src}
+        </span>
+      </div>
+      {/* Static screenshot image — not using next/image because these
+          are user-dropped PNGs of unknown dimensions and we want the
+          onError fallback to swap to the placeholder frame. */}
+      <img
+        src={src}
+        alt={caption}
+        onError={() => setErrored(true)}
+        className="block aspect-[16/10] w-full object-cover object-top"
+        loading="lazy"
+      />
+      <figcaption className="border-t border-token-soft px-3 py-2 text-xs text-muted-light">
+        {caption}
+      </figcaption>
+    </figure>
   );
 }
 

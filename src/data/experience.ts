@@ -59,7 +59,7 @@ export const experience: ExperienceItem[] = [
     kind: "education",
     role: "BS Information Technology",
     organization: "University of the Punjab",
-    dateLabel: "Graduation expected 2025",
+    dateLabel: "Completed 2025",
     bullets: [
       "Coursework spanning software engineering, databases, networking, and cybersecurity fundamentals.",
       "Academic project work in Oracle SQL and relational database design.",
@@ -69,9 +69,9 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: "cert-networking",
-    kind: "certification",
-    role: "Networking Fundamentals",
-    organization: "Course certification",
+    kind: "training",
+    role: "Networking Fundamentals (Training)",
+    organization: "Self-directed + course material",
     dateLabel: "2024",
     bullets: [
       "Hands-on coverage of TCP/IP, routing basics, and packet analysis.",
@@ -81,9 +81,9 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: "cert-security",
-    kind: "certification",
-    role: "Cybersecurity Fundamentals",
-    organization: "Course certification",
+    kind: "training",
+    role: "Cybersecurity Fundamentals (Training)",
+    organization: "Self-directed + course material",
     dateLabel: "2023",
     bullets: [
       "Common vulnerabilities, threat modeling basics, and hardening practices.",

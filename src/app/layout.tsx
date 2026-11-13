@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { person, contactInfo, profileUrls } from "@/data/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -22,31 +23,38 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://developerzeeshan.vercel.app";
+// Canonical live URL. Keep in sync with NEXT_PUBLIC_SITE_URL in .env.
+const SITE_URL = "https://zeeshandeveloper.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Zeeshan Ahmad — Building useful digital products",
-    template: "%s — Zeeshan Ahmad",
+    default: "Muhammad Zeeshan — Full-Stack Software Engineer | AI & Automation",
+    template: "%s — Muhammad Zeeshan",
   },
   description:
-    "Full-stack developer building digital experiences at the intersection of software engineering, AI automation, and secure products. Explore selected work and case studies.",
+    "Full-Stack Software Engineer specializing in AI-powered applications and automation. React/Next.js, Node.js, TypeScript. Open to software engineering roles. Based in Multan, Pakistan.",
   keywords: [
-    "Zeeshan Ahmad",
-    "Full-Stack Developer",
-    "AI Automation",
-    "Cybersecurity",
+    "Muhammad Zeeshan",
+    "Full-Stack Software Engineer",
+    "AI Application Developer",
     "Next.js Developer",
     "React Developer",
     "Node.js",
+    "TypeScript",
+    "Junior Software Engineer",
+    "Software Engineer Pakistan",
+    "AI Automation",
     "Portfolio",
-    "Software Engineer",
     "Web Application Development",
+    "LLM Integration",
   ],
-  authors: [{ name: "Zeeshan Ahmad" }],
-  creator: "Zeeshan Ahmad",
-  publisher: "Zeeshan Ahmad",
+  authors: [{ name: person.name }],
+  creator: person.name,
+  publisher: person.name,
+  alternates: {
+    canonical: SITE_URL,
+  },
   icons: {
     icon: [
       { url: "/favicon.svg" },
@@ -60,19 +68,28 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Zeeshan Ahmad — Full-Stack Developer & AI Automation Builder",
+    title: "Muhammad Zeeshan — Full-Stack Software Engineer | AI & Automation",
     description:
-      "Building useful digital products with code, AI, and secure engineering. Full-stack web applications, AI automation, and cybersecurity.",
+      "I build scalable web applications, AI-powered products, and business automation systems using modern frontend and backend technologies. Open to software engineering roles.",
     url: SITE_URL,
-    siteName: "Zeeshan Ahmad",
+    siteName: "Muhammad Zeeshan",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Muhammad Zeeshan — Full-Stack Software Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zeeshan Ahmad — Full-Stack Developer & AI Automation Builder",
+    title: "Muhammad Zeeshan — Full-Stack Software Engineer | AI & Automation",
     description:
-      "Building useful digital products with code, AI, and secure engineering.",
+      "I build scalable web applications, AI-powered products, and business automation systems.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -86,6 +103,58 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * JSON-LD structured data. Helps search engines and recruiters
+ * (Google for Jobs, LinkedIn parsers) correctly identify the
+ * person behind the portfolio and their open-to-work status.
+ *
+ * Two blocks:
+ *  - Person: identity, sameAs links, job title
+ *  - WebSite: canonical site, name, publisher
+ */
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    jobTitle: "Full-Stack Software Engineer",
+    description: person.headline,
+    email: `mailto:${profileUrls.email}`,
+    url: SITE_URL,
+    image: `${SITE_URL}/images/profile/portrait.png`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Multan",
+      addressCountry: "PK",
+    },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "University of the Punjab",
+    },
+    knowsAbout: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "AI Integration",
+      "Retrieval-Augmented Generation",
+      "MySQL",
+      "Full-Stack Development",
+    ],
+    sameAs: [
+      profileUrls.github,
+      profileUrls.linkedin,
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: `${person.name} — Portfolio`,
+    url: SITE_URL,
+    publisher: { "@type": "Person", name: person.name },
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -93,6 +162,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {jsonLd.map((block, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            // JSON.stringify is safe here — block is a static literal object.
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(block) }}
+          />
+        ))}
+      </head>
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground font-sans`}
       >

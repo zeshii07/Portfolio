@@ -168,6 +168,14 @@ export function FeaturedNova({ onOpenProject }: FeaturedNovaProps) {
               <Stat icon={Bot} value="RAG" label="Grounded answers" />
               <Stat icon={Layers} value="Inbox" label="Unified view" />
             </Reveal>
+
+            {/* Demo data disclaimer — keeps the section honest about
+                which figures are illustrative vs. real production. */}
+            <Reveal delay={0.7} direction="up" className="mt-6">
+              <p className="rounded-lg border border-white/15 bg-white/5 px-3 py-2 font-mono-token text-[10px] uppercase tracking-[0.18em] text-white/60">
+                <span className="text-volt">Demo data:</span> Quantitative metrics shown in the case study (conversations, deflection, leads, tenants, growth) are illustrative dashboard figures — not real customer results.
+              </p>
+            </Reveal>
           </div>
         </div>
       </div>

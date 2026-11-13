@@ -102,8 +102,8 @@ export function AboutPreview() {
           </Reveal>
 
           <Reveal delay={0.4} direction="up" className="mt-6 grid grid-cols-2 gap-4 border-t border-ink/15 pt-5 text-left sm:mt-8 sm:gap-6 sm:pt-6 sm:max-w-2xl sm:mx-auto">
-            <Annotation label="Education" value="BS Information Technology" sub="University of the Punjab" />
-            <Annotation label="Focus" value="Full-stack · AI · Security" sub="Practical, grounded delivery" />
+            <Annotation label="Education" value="BS Information Technology · 2025" sub="University of the Punjab — Completed" />
+            <Annotation label="Focus" value="Full-Stack · AI · Automation" sub="Security as a secondary specialization" />
           </Reveal>
 
           <Reveal delay={0.5} direction="up" className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:mt-8 sm:gap-4">
@@ -163,7 +163,7 @@ function PortraitImage() {
   return (
     <Image
       src="/images/profile/portrait.png"
-      alt="Portrait of Zeeshan Ahmad"
+      alt="Portrait of Muhammad Zeeshan"
       fill
       sizes="(max-width: 640px) 220px, (max-width: 1024px) 280px, 340px"
       className="object-cover"

@@ -104,7 +104,7 @@ export function ContactScene() {
         {/* Header */}
         <div className="mb-5 flex items-end justify-between gap-6">
           <Eyebrow color="volt">Contact</Eyebrow>
-          <SectionNumber value="08" outline={false} className="text-white/30" />
+          <SectionNumber value="09" outline={false} className="text-white/30" />
         </div>
 
         {/* Giant CTA heading */}
@@ -348,9 +348,10 @@ export function ContactScene() {
                   <span className="font-mono-token uppercase tracking-[0.18em] text-ink/50">
                     Privacy ·{" "}
                   </span>
-                  The form collects your name, email, subject, and message so I can
-                  reply. I do not sell or share your details. Email me directly if you
-                  prefer not to use the form.
+                  The form collects your name, email, subject, and message. Submissions
+                  are sent via Gmail SMTP to my inbox at {contactInfo.email} and used
+                  solely to reply to your enquiry. I do not sell or share your details
+                  with third parties. Email me directly if you prefer not to use the form.
                 </p>
               </div>
             </Reveal>

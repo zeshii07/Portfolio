@@ -118,19 +118,30 @@ updated `package-lock.json`.
 
 ### Contact form returns 503
 
-This is expected until you configure email credentials. The form
-validates correctly but can't send without an email provider.
+This is expected until you configure SMTP credentials. The form
+validates correctly but can't send without SMTP credentials in
+production.
 
-To fix:
-1. Sign up for a transactional email provider (Resend, Postmark, SendGrid)
-2. Add env vars in Vercel → Settings → Environment Variables:
+To fix (Gmail SMTP):
+1. Enable 2-Step Verification on your Google account
+   (https://myaccount.google.com/security)
+2. Create a Gmail App Password
+   (https://myaccount.google.com/apppasswords) — 16 chars, no spaces
+3. Add env vars in Vercel → Settings → Environment Variables:
    ```
-   EMAIL_API_KEY=your_key
-   EMAIL_PROVIDER=resend
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=465
+   SMTP_USER=zeeshansultan785@gmail.com
+   SMTP_PASS=your_16_char_app_password
+   CONTACT_FROM_EMAIL=zeeshansultan785@gmail.com
    CONTACT_TO_EMAIL=zeeshansultan785@gmail.com
-   CONTACT_FROM_EMAIL=portfolio@yourdomain.com
+   NEXT_PUBLIC_SITE_URL=https://zeeshandeveloper.vercel.app
    ```
-3. Wire the provider call in `src/lib/portfolio/email.ts`
+4. Redeploy. The contact form will now deliver to your Gmail inbox.
+
+> **Important:** Gmail requires `CONTACT_FROM_EMAIL` to equal
+> `SMTP_USER`. The email helper enforces this — see
+> `src/lib/portfolio/email.ts`.
 
 ### Page shows "404 Not Found" after deploy
 

@@ -10,7 +10,15 @@ import { useActiveSection } from "@/hooks/use-active-section";
 import { MagneticButton } from "@/components/motion/magnetic-button";
 import { cn } from "@/lib/utils";
 
-const sectionIds = ["top", "about", "projects", "skills", "experience", "contact"];
+const sectionIds = [
+  "top",
+  "about",
+  "projects",
+  "skills",
+  "experience",
+  "open-to-opportunities",
+  "contact",
+];
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
